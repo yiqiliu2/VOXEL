@@ -29,7 +29,7 @@ design-space exploration (DSE).
 
 > Prefill (batch-1 full-sequence) simulations are the memory bottleneck.
 > The pipeline auto-limits concurrency.  At 96 GB RAM use
-> `--decode-parallel-limit 2`.
+> `--decode-parallel-limit 2` (see Section 3.1).
 
 ### 1.2 Python Virtual Environment
 
@@ -55,8 +55,8 @@ Packages: `numpy==1.26.4`, `ujson`, `scikit-learn`, `scipy`, `linear-tree`, `mat
 bash scripts/setup_external_backends.sh
 ```
 
-Builds HotSpot, 3D-ICE, DSENT, and ORION for thermal/NoC power analysis.
-Not mandatory for AE — the simulator can fall back to built-in analytical models and the provided cached data.
+Builds HotSpot, 3D-ICE, DSENT, and ORION for detailed thermal analysis.
+Not mandatory for AE — the simulator can fall back to built-in analytical models.
 
 ---
 
@@ -112,7 +112,7 @@ bash master_runner.sh --dry-run    # check data completeness
 > Ensure your virtual environment is activated (`source venv/bin/activate`)
 > before running the commands below.
 
-**Important:** Run each group sequentially — do **not** launch them as parallel
+**Important:** Run each group sequentially when directly using `run_all_modes.py` — do **not** launch them as parallel
 background jobs.  Each invocation reads and modifies `run_all_tests.py` before
 executing it; concurrent runs from the same terminal are safe (in-memory
 modification via `python3 -c`), but parallel shell background jobs may interfere.
@@ -244,12 +244,12 @@ Expected output files in `figures/`:
 Multi-level area-constrained coordinate descent traces the optimal area-vs-latency
 trade-off.  Defaults to 15 area levels with 5 coordinate-descent cycles each in **large→small (reverse)** order,
 which provides better Pareto coverage by warm-starting from the globally
-unconstrained optimum (figure in paper used higher level and cycle counts, but would take too long).  Each run merges results with prior runs on disk.
-The coordinate descent evaluates many configs per level; **decode ~2 h**,
-**prefill ~12 h** (batch-1 full-sequence is slower).  Interrupted runs
-resume from cached evaluations.
+unconstrained optimum. Interrupted runs can resume from cached evaluations, where each run merges results with prior runs on disk. 
 
-Override with `--num-sweeps N` and `--max-cycles C`.
+The coordinate descent evaluates many configs per level; **decode ~3 h**,
+**prefill ~12 h** (long-sequence is slower).  
+Notably, the original Figure 8 in our paper used more area levels and more descent cycles, which required longer exploration time. 
+To override the default area levels and descent cycles, use `--num-sweeps N` and `--max-cycles C`.
 
 ```bash
 # Convenience wrapper (auto-activates venv):
@@ -314,7 +314,7 @@ same command.  DSE uses disk-backed cache; forward+reverse runs merge results.
 ## 5. Useful Commands
 
 ```bash
-# Efficient: modes that need both prefill and decode
+# Run modes that need both prefill and decode
 python3 run_all_modes.py --run-both --modes 2,5,7,9
 
 # Prefill or decode only
