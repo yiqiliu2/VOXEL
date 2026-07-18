@@ -13,7 +13,6 @@ design-space exploration (DSE).
 > results.
 > 
 > ![VoxelSim Workbench — Pareto explorer](web_profiler/webui.png)
-
 ---
 
 ## 1. Environment Setup
