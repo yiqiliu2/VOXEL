@@ -1,4 +1,4 @@
-# 3D-Stack Simulator — Artifact Evaluation Guide
+# VoxelSim — Artifact Evaluation Guide
 
 Reproduces key experiments in the paper (Figures 8, 10–13, 15, 17–20).  Covers environment
 setup, simulation data generation, figure plotting, and the Pareto-frontier
