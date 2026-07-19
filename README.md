@@ -4,7 +4,7 @@ Reproduces key experiments in the [paper](https://arxiv.org/abs/2604.26821) (Fig
 setup, simulation data generation, figure plotting, and the Pareto-frontier
 design-space exploration (DSE).
 
-> **Interactive UI (experimental):** an experimental web workbench is also
+> **Interactive UI (experimental):** An experimental web workbench is also
 > available in `web_profiler/` for browsing simulation results, reproducing
 > paper figures, and launching runs — see
 > [web_profiler/README.md](web_profiler/README.md).  It is offered as an
@@ -28,7 +28,7 @@ design-space exploration (DSE).
 | CPU cores | 64 | 128 |
 
 > Prefill (batch-1 full-sequence) simulations are the memory bottleneck.
-> The pipeline auto-limits concurrency.  At 96 GB RAM use
+> The pipeline auto-limits concurrency.  At 96 GB RAM, use
 > `--decode-parallel-limit 2` (see Section 3.1).
 
 ### 1.2 Python Virtual Environment
@@ -105,17 +105,19 @@ bash master_runner.sh --dry-run    # check data completeness
 > same `run_all_modes.py` commands shown below; see its header comment for
 > the 1:1 correspondence with the groups listed here.
 >
-> Usage: `bash run_figure_data.sh` (full) or `bash run_figure_data.sh --dry-run` (check progress only).
+> Usage: `bash run_figure_data.sh` (full) or `bash run_figure_data.sh --dry-run`
+> (check progress only).
 
 ### 3.1 Generate Simulation Data
 
 > Ensure your virtual environment is activated (`source venv/bin/activate`)
 > before running the commands below.
 
-**Important:** Run each group sequentially when directly using `run_all_modes.py` — do **not** launch them as parallel
-background jobs.  Each invocation reads and modifies `run_all_tests.py` before
-executing it; concurrent runs from the same terminal are safe (in-memory
-modification via `python3 -c`), but parallel shell background jobs may interfere.
+**Important:** Run each group sequentially when directly using `run_all_modes.py`
+— do **not** launch them as parallel background jobs.  Each invocation reads and 
+modifies `run_all_tests.py` before executing it; concurrent runs from the same
+terminal are safe (in-memory modification via `python3 -c`), but parallel shell 
+background jobs may interfere.
 
 ```bash
 # Group A1 — Mode 2 prefill only (dit-xl needed for Fig 15 prefill row)
@@ -242,13 +244,14 @@ Expected output files in `figures/`:
 ### 3.5 Pareto Frontier DSE (Fig 8)
 
 Multi-level area-constrained coordinate descent traces the optimal area-vs-latency
-trade-off.  Defaults to 15 area levels with 5 coordinate-descent cycles each in **large→small (reverse)** order,
-which provides better Pareto coverage by warm-starting from the globally
-unconstrained optimum. Interrupted runs can resume from cached evaluations, where each run merges results with prior runs on disk. 
+trade-off.  Defaults to 15 area levels with 5 coordinate-descent cycles each in 
+**large→small (reverse)** order, which provides better Pareto coverage by warm-starting 
+from the globally unconstrained optimum. Interrupted runs can resume from cached evaluations, 
+where each run merges results with prior runs on disk. 
 
-The coordinate descent evaluates many configs per level; **decode ~3 h**,
-**prefill ~12 h** (long-sequence is slower).  
-Notably, the original Figure 8 in our paper used more area levels and more descent cycles, which required longer exploration time. 
+The coordinate descent evaluates many configs per level; decode takes ~6 h,
+and prefill takes ~9 h (long-sequence is slower). Notably, the original Figure 8 in our paper 
+used more area levels and more descent cycles, which required longer exploration time. 
 To override the default area levels and descent cycles, use `--num-sweeps N` and `--max-cycles C`.
 
 ```bash
@@ -307,7 +310,7 @@ bash run_figure_data.sh --dry-run
 
 ### Incremental runs
 The pipeline skips output files containing `Overall Util:` — simply re-run the
-same command.  DSE uses disk-backed cache; forward+reverse runs merge results.
+same command.  DSE uses disk-backed caches; forward+reverse runs merge results.
 
 ---
 
