@@ -309,8 +309,8 @@ bash run_figure_data.sh --dry-run
 ```
 
 ### Incremental runs
-The pipeline skips output files containing `Overall Util:` — simply re-run the
-same command.  DSE uses disk-backed caches; forward+reverse runs merge results.
+The pipeline skips existing output files — simply re-run the same command.
+DSE uses disk-backed caches; forward+reverse runs merge results.
 
 ---
 
