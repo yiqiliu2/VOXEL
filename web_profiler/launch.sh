@@ -1,5 +1,5 @@
 #!/bin/bash
-# Launcher for VoxelSim Workbench
+# Launcher for VOXEL Workbench
 
 set -e
 cd "$(dirname "$0")/.."          # project root (web_profiler/..)
@@ -7,7 +7,7 @@ PY=venv/bin/python
 [ -x "$PY" ] || PY=python3
 
 echo "================================================"
-echo "  VoxelSim Workbench"
+echo "  VOXEL Workbench"
 echo "================================================"
 "$PY" -c "import flask" 2>/dev/null || { echo "Installing Flask..."; "$PY" -m pip install -r web_profiler/requirements.txt; }
 

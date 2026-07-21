@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VoxelSim Workbench — core framework
+   VOXEL Workbench — core framework
    Hash router + API client + DOM builder + design-system components.
    Every page module registers itself via App.route(name, {title, render}).
    ========================================================================== */
@@ -138,7 +138,7 @@ App._render = async function () {
   document.querySelectorAll(".nav-item").forEach(a =>
     a.classList.toggle("active", a.dataset.route === name));
   document.getElementById("page-title").textContent = route.title || name;
-  document.title = `${route.title || name} · VoxelSim Workbench`;
+  document.title = `${route.title || name} · VOXEL Workbench`;
   const crumb = document.getElementById("page-crumb");
   crumb.textContent = params && Object.keys(params).length
     ? Object.entries(params).map(([k, v]) => `${k}=${v.length > 46 ? v.slice(0, 46) + "…" : v}`).join("  ")

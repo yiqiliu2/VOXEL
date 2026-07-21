@@ -1,4 +1,4 @@
-"""VoxelSim Workbench — Flask application factory."""
+"""VOXEL Workbench — Flask application factory."""
 
 import threading
 

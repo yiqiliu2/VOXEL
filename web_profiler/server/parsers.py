@@ -1,4 +1,4 @@
-"""Parsers for VoxelSim simulation output files.
+"""Parsers for VOXEL simulation output files.
 
 All parsers are pure functions on text (or small file reads) so they are
 trivially testable.  Summary parsing reads only the head of a log file;

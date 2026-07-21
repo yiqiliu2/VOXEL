@@ -1,4 +1,4 @@
-"""Shared fixtures for the VoxelSim Workbench test suite.
+"""Shared fixtures for the VOXEL Workbench test suite.
 
 Session-scoped ``app``/``client``/``index`` fixtures build the results index
 once (~2 s on the real data set) and share it across all test modules.

@@ -1,11 +1,11 @@
-# VoxelSim Workbench
+# VOXEL Workbench
 
 [English](README.md) | **中文**
 
-VoxelSim(3D 堆叠 AI 芯片 LLM 推理模拟器)的一体化 Web 工作台:结果检索、深度分析、
+VOXEL(3D 堆叠 AI 芯片 LLM 推理模拟器)的一体化 Web 工作台:结果检索、深度分析、
 论文图表复现、在线启动模拟/扫描/DSE/热分析、任务管理、硬件/模型/NoC 资源库与系统监控。
 
-![VoxelSim Workbench — Pareto 探索页](webui.png)
+![VOXEL Workbench — Pareto 探索页](webui.png)
 
 ## 快速开始
 

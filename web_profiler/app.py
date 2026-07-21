@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""VoxelSim Workbench — entry point.
+"""VOXEL Workbench — entry point.
 
 Thin launcher around :func:`web_profiler.server.create_app`.  All routes and
 logic live in ``web_profiler/server/``; this file only wires up host/port and
@@ -27,5 +27,5 @@ PORT = int(os.environ.get("FLASK_PORT", "5000"))
 app = create_app()
 
 if __name__ == "__main__":
-    print(f"VoxelSim Workbench listening on http://{HOST}:{PORT}")
+    print(f"VOXEL Workbench listening on http://{HOST}:{PORT}")
     app.run(debug=DEBUG, host=HOST, port=PORT, threaded=True)

@@ -1,11 +1,11 @@
-# VoxelSim Workbench
+# VOXEL Workbench
 
-An all-in-one web workbench for VoxelSim (3D-stacked AI-chip LLM-inference
+An all-in-one web workbench for VOXEL (3D-stacked AI-chip LLM-inference
 simulator): result browsing, deep-dive analysis, paper-figure reproduction,
 launching simulations / sweeps / DSE / thermal analyses from the browser,
 job management, hardware/model/NoC catalogs and system monitoring.
 
-![VoxelSim Workbench — Pareto explorer](webui.png)
+![VOXEL Workbench — Pareto explorer](webui.png)
 
 ## Quick Start
 

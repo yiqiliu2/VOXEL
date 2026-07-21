@@ -1,4 +1,4 @@
-"""Paths and constants for the VoxelSim Workbench backend.
+"""Paths and constants for the VOXEL Workbench backend.
 
 Everything is rooted at the project directory (the parent of ``web_profiler``).
 No existing project files are modified; runtime state lives in

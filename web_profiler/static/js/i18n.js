@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VoxelSim Workbench — UI string table.
+   VOXEL Workbench — UI string table.
    English is the default UI language and the English text itself is the
    lookup key; page code calls t("English text").  This file holds the zh
    translations for the core framework, shell and dashboard; other pages

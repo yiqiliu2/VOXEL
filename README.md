@@ -1,4 +1,4 @@
-# VoxelSim — Artifact Evaluation Guide
+# VOXEL — Artifact Evaluation Guide
 
 Reproduces key experiments in the [paper](https://arxiv.org/abs/2604.26821) (Figures 8, 10–13, 15, 17–20).  Covers environment
 setup, simulation data generation, figure plotting, and the Pareto-frontier
@@ -12,7 +12,7 @@ design-space exploration (DSE).
 > recommend the standard steps below (Section 2) to reproduce the paper's
 > results.
 > 
-> ![VoxelSim Workbench — Pareto explorer](web_profiler/webui.png)
+> ![VOXEL Workbench — Pareto explorer](web_profiler/webui.png)
 ---
 
 ## 1. Environment Setup
